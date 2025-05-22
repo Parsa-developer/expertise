@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o)5&*fqgsl%8nh0j(wdm^m1al5m%5bww^s))l26qs5*m=9^3e1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'expertise.urls'
@@ -136,4 +140,4 @@ OAUTH2_AUTH_URL = 'https://oauth.divar.ir/oauth2/auth'
 OAUTH2_TOKEN_URL = 'https://oauth.divar.ir/oauth2/token'
 OAUTH2_CLIENT_ID = 'desert-cherry-coyote'  # نام اپلیکیشن شما
 OAUTH2_CLIENT_SECRET = os.environ.get('OAUTH2_CLIENT_SECRET', 'your-default-client-secret')  # در محیط تولید از متغیرهای محیطی استفاده کنید
-OAUTH2_REDIRECT_URI = 'http://http://127.0.0.1:8000/api/oauth/callback/'  # آدرس کالبک
+OAUTH2_REDIRECT_URI = 'https://parsanami.pythonanywhere.com/api/oauth/callback/'  # آدرس کالبک

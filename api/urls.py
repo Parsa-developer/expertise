@@ -9,7 +9,7 @@ router.register(r'sellers', SellerViewSet, basename='sellers')
 
 urlpatterns = [
     path('', include(router.urls)),
-path('', ApiRoot.as_view(), name='api-root'),
+    path('', ApiRoot.as_view(), name='api-root'),
     path('oauth/redirect/', OAuthRedirectView.as_view(), name='oauth-redirect'),
     path('oauth/callback/', OAuthCallbackView.as_view(), name='oauth-callback'),
 ]
